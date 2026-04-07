@@ -14,23 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links'); // Desktop and Mobile navs
 
-    if (mobileBtn && navLinks) {
+    if (mobileBtn) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Toggle icon (optional, using simple text for now)
-            mobileBtn.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            navLinks.forEach(nav => {
+                if(nav.closest('.mobile-header')) {
+                    nav.classList.toggle('active');
+                }
+            });
+            mobileBtn.innerHTML = document.querySelector('.mobile-header .nav-links').classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
 
     // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
+            navLinks.forEach(nav => {
+                if(nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    if(mobileBtn) mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
         });
     });
 
@@ -38,18 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal');
 
     const revealOptions = {
-        threshold: 0.15, // Trigger when 15% of the element is visible
-        rootMargin: "0px 0px -50px 0px" // Triggers slightly before element enters viewport completely
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: Stop observing once revealed if you only want it to animate once
-                // observer.unobserve(entry.target);
             } else {
-                // Remove to allow repeating animation on scroll up (optional)
                 entry.target.classList.remove('active');
             }
         });
@@ -78,4 +80,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. Open Default Tab for Categories
+    const defaultTab = document.getElementById("defaultOpenTab");
+    if(defaultTab) {
+        defaultTab.click();
+    }
 });
+
+// Category Tab Logic
+function openCategory(evt, categoryName) {
+    let i, tabcontent, tablinks;
+    
+    // Hide all tab content
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+    
+    // Remove "active" class from all buttons
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    const target = document.getElementById(categoryName);
+    if(target) {
+        target.style.display = "block";
+        // Small timeout to allow display:block to render before triggering opacity transition
+        setTimeout(() => target.classList.add("active"), 10);
+    }
+    evt.currentTarget.className += " active";
+}
