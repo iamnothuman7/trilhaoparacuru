@@ -230,8 +230,17 @@ h2 {
   z-index: -2;
 }
 
-.bg-desktop { display: block; }
-.bg-mobile { display: none; }
+.hero-logo {
+  height: clamp(100px, 20vw, 160px);
+  width: auto;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
 .hero-overlay {
   position: absolute;
@@ -290,16 +299,76 @@ h2 {
   border-color: var(--primary-orange);
 }
 
-.hero .btn {
+.hero .btn-primary {
   font-size: 1.2rem;
   padding: 1.2rem 3rem;
   animation: pulse 2s infinite;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(245, 132, 0, 0.7); }
   70% { box-shadow: 0 0 0 20px rgba(245, 132, 0, 0); }
   100% { box-shadow: 0 0 0 0 rgba(245, 132, 0, 0); }
+}
+
+/* ─── Sponsors Section ──────────────────────── */
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.sponsor-slot {
+  background: var(--bg-surface);
+  border-radius: var(--border-radius);
+  border: 2px dashed rgba(255,255,255,0.1);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  transition: var(--transition-fast);
+}
+
+.sponsor-slot span {
+  color: rgba(255,255,255,0.2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sponsor-slot:hover {
+  border-color: var(--primary-orange);
+  background: rgba(245, 132, 0, 0.05);
+}
+
+.sponsor-slot img {
+  max-height: 60px;
+  width: auto;
+  filter: grayscale(100%) brightness(1.5);
+  transition: var(--transition-fast);
+}
+
+.sponsor-slot:hover img {
+  filter: grayscale(0%) brightness(1);
+}
+
+/* ─── CTA Logo ──────────────────────────────── */
+.cta-logo {
+  height: 100px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
 /* ─── Section Wrapper ───────────────────────── */
@@ -799,12 +868,13 @@ h2 {
     display: flex;
   }
 
-  .bg-desktop { display: none; }
-  .bg-mobile { display: block; }
-
   .hero { min-height: 100vh; }
 
   .hero-content { margin-top: 80px; }
+
+  .hero-logo {
+    height: 90px;
+  }
 
   .hero-details {
     flex-direction: column;
@@ -816,13 +886,19 @@ h2 {
   .detail-item {
     width: 100%;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 0.95rem;
     padding: 0.7rem 1.2rem;
   }
 
-  .hero .btn {
+  .hero-buttons {
     width: 100%;
-    font-size: 1.1rem;
+    flex-direction: column;
+  }
+
+  .hero .btn-primary,
+  .hero .btn-outline {
+    width: 100%;
+    font-size: 1.05rem;
   }
 
   .tab-buttons {
@@ -840,5 +916,19 @@ h2 {
 
   .prize-list {
     grid-template-columns: 1fr;
+  }
+
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .sponsor-slot {
+    padding: 1.5rem 1rem;
+    min-height: 80px;
+  }
+
+  .cta-logo {
+    height: 70px;
   }
 }
