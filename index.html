@@ -3,67 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7º Trilhão Paracuru | Maior Evento Off-Road do Ceará</title>
-    <meta name="description" content="O Gigante Acordou! Sinta a adrenalina do 7º Trilhão de Paracuru. Evento off-road nas dunas do Ceará com R$ 55 mil em prêmios.">
-    
+    <title>7º Trilhão Paracuru Off-Road | Maior Evento Off-Road do Ceará</title>
+    <meta name="description" content="O Gigante Acordou! 7ª Edição do Trilhão Paracuru Off-Road. 29 e 30 de Agosto de 2026. R$55 mil em premiações. Garanta sua vaga!">
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Desktop Header -->
-    <header class="navbar desktop-header">
-        <a href="#" class="nav-brand">
-            <img src="assets/img/logo.jpg" alt="Equipe Paracuru Off Road" class="nav-logo">
+    <!-- ═══ DESKTOP HEADER ═══ -->
+    <header class="navbar desktop-header" id="mainNav">
+        <a href="#home" class="nav-brand">
+            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo">
         </a>
         <nav class="nav-links">
-            <a href="#sobre">Sobre o Evento</a>
+            <a href="#sobre">O Evento</a>
             <a href="#categorias">Categorias</a>
             <a href="#premiacao">Premiação</a>
-            <a href="#patrocinio">Patrocínio</a>
-            <a href="#inscricao" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Inscrever-se</a>
+            <a href="#kit">Kit</a>
+            <a href="#inscricao" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">
+                <i class="fab fa-whatsapp"></i> Inscrever-se
+            </a>
         </nav>
     </header>
 
-    <!-- Mobile Header -->
+    <!-- ═══ MOBILE HEADER ═══ -->
     <header class="navbar mobile-header">
-        <a href="#" class="nav-brand">
-            <img src="assets/img/logo.jpg" alt="Equipe Paracuru Off Road" class="nav-logo">
+        <a href="#home" class="nav-brand">
+            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo">
         </a>
-        
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <button class="mobile-menu-btn" aria-label="Abrir menu">
             <i class="fas fa-bars"></i>
         </button>
-
         <nav class="nav-links">
-            <a href="#sobre">Sobre o Evento</a>
+            <a href="#sobre">O Evento</a>
             <a href="#categorias">Categorias</a>
             <a href="#premiacao">Premiação</a>
-            <a href="#patrocinio">Patrocínio</a>
-            <a href="#inscricao" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Inscrever-se</a>
+            <a href="#kit">Kit</a>
+            <a href="#inscricao" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                <i class="fab fa-whatsapp"></i> Inscrever-se
+            </a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ═══ HERO ═══ -->
     <section class="hero" id="home">
-        <!-- Background Images -->
         <img src="assets/img/poster-desktop.jpg" alt="7ª Edição Trilhão Paracuru Off-Road" class="hero-bg bg-desktop">
         <img src="assets/img/poster-mobile.jpg" alt="7ª Edição Trilhão Paracuru Off-Road" class="hero-bg bg-mobile">
         <div class="hero-overlay"></div>
 
         <div class="hero-content reveal">
-            <span class="section-tag"><i class="fas fa-fire"></i> O MAIOR EVENTO OFF-ROAD ESTÁ DE VOLTA!</span>
+            <span class="section-tag"><i class="fas fa-fire"></i> O MAIOR EVENTO OFF-ROAD DO VALE DO CURU</span>
+
             <h1>
                 7ª EDIÇÃO DO<br>
-                <span class="text-yellow">TRILHÃO PARACURU</span><br>
-                OFF-ROAD
+                <span class="text-accent">TRILHÃO PARACURU</span><br>
+                <span class="text-yellow">OFF-ROAD</span>
             </h1>
-            
+
             <div class="hero-details">
-                <div class="detail-item" style="background: var(--primary-orange); color: white; border-color: var(--primary-orange);">
+                <div class="detail-item highlight">
                     <i class="fas fa-calendar-alt"></i> 29 E 30 DE AGOSTO DE 2026
                 </div>
                 <div class="detail-item">
@@ -71,193 +73,241 @@
                 </div>
             </div>
 
-            <a href="#inscricao" class="btn btn-primary" style="margin-top: 1rem;">
-                Garantir Minha Vaga <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+            <a href="#inscricao" class="btn btn-primary">
+                Garantir Minha Vaga <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
-    <!-- SOBRE O EVENTO -->
-    <section class="section-wrapper" id="sobre">
-        <div class="container about-grid">
-            <div class="about-content reveal">
-                <span class="section-tag">EDIÇÃO 2026</span>
-                <h3>O GIGANTE ACORDOU!</h3>
-                <p><strong>O maior evento off-road do Vale do Curu está de volta e a 7ª edição promete ser hitórica.</strong></p>
-                <p>Uma experiência única que desafia os limites de homens e máquinas. Percorrendo os caminhos mais radicais entre as dunas, lama, trilhas e trechos de Paracuru-CE, essa trilha se tornou a referência em off-road do nordeste.</p>
-                <p>Com mais de <strong>130km de percurso off-road</strong>, o evento reúne centenas de participantes e milhares de espectadores, movimentando a economia local e promovendo o turismo de aventura.</p>
-                <p style="font-size: 1.3rem; font-weight: bold; color: var(--text-light); margin-top: 1rem;">Onde a adrenalina encontra o mar!</p>
-            </div>
-            <div class="about-image reveal" style="transition-delay: 0.2s;">
-                <!-- Placeholder, will use one of the images or hero bg temporarily -->
-                <img src="assets/img/poster.jpg" alt="Ação Trilhão Paracuru">
+    <!-- ═══ SOBRE O EVENTO ═══ -->
+    <section class="section-wrapper section-alt" id="sobre">
+        <div class="container">
+            <h2 class="reveal">Sobre o <span class="text-accent">Evento</span></h2>
+            <p class="section-subtitle reveal">Uma experiência única que desafia os limites de homens e máquinas.</p>
+
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <span class="section-tag">EDIÇÃO 2026</span>
+                    <h3>O GIGANTE<br>ACORDOU!</h3>
+                    <p>O maior evento off-road do Vale do Curu está de volta e a <strong>7ª edição promete ser histórica.</strong></p>
+                    <p>Percorrendo os caminhos mais radicais entre as dunas, lama, trilhas e trechos de Paracuru-CE, essa trilha se tornou a referência em off-road do nordeste.</p>
+                    <p>O evento reúne centenas de participantes e milhares de espectadores, movimentando a economia local e promovendo o turismo de aventura.</p>
+                    <div class="stat-highlight">
+                        <i class="fas fa-road text-accent"></i> Mais de 130km de percurso off-road — Onde a adrenalina encontra o mar!
+                    </div>
+                </div>
+                <div class="about-image reveal" style="transition-delay: 0.2s;">
+                    <img src="assets/img/hero-bg.png" alt="Ação no Trilhão Paracuru">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CATEGORIAS (Interactive Tabs) -->
+    <!-- ═══ CATEGORIAS (Tabs Interativos) ═══ -->
     <section class="section-wrapper" id="categorias">
-        <div class="container tabs-container">
+        <div class="container">
             <h2 class="reveal">Categorias do <span class="text-accent">Trilhão</span></h2>
-            
-            <!-- Tab Buttons -->
-            <div class="tab-buttons reveal" style="transition-delay: 0.2s;">
-                <button class="tablinks" onclick="openCategory(event, 'C_MOTO')" id="defaultOpenTab">MOTO</button>
-                <button class="tablinks" onclick="openCategory(event, 'C_QUAD')">QUADRICICLO</button>
-                <button class="tablinks" onclick="openCategory(event, 'C_UTV')">UTV</button>
-                <button class="tablinks" onclick="openCategory(event, 'C_4X4')">4X4</button>
-                <button class="tablinks" onclick="openCategory(event, 'C_BIKE')">BIKE</button>
-                <button class="tablinks" onclick="openCategory(event, 'C_BUGGY')">BUGGY & CARROS</button>
-            </div>
+            <p class="section-subtitle reveal">Escolha a sua máquina e venha desbravar as dunas!</p>
 
-            <!-- Tab Content -->
-            <div id="C_MOTO" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/cat-motos.png" alt="Motos">
-                    <div class="category-info">
-                        <h3><i class="fas fa-motorcycle text-accent"></i> MOTO</h3>
-                        <p>Trilhas abertas, single tracks desafiadores e saltos incríveis na areia. Preparado para voar sobre as dunas de Paracuru?</p>
+            <div class="tabs-container">
+                <div class="tab-buttons reveal">
+                    <button class="tablinks" onclick="openCategory(event, 'C_MOTO')" id="defaultOpenTab">MOTO</button>
+                    <button class="tablinks" onclick="openCategory(event, 'C_QUAD')">QUADRICICLO</button>
+                    <button class="tablinks" onclick="openCategory(event, 'C_UTV')">UTV</button>
+                    <button class="tablinks" onclick="openCategory(event, 'C_4X4')">4X4</button>
+                    <button class="tablinks" onclick="openCategory(event, 'C_BIKE')">BIKE</button>
+                    <button class="tablinks" onclick="openCategory(event, 'C_BUGGY')">BUGGY & CARROS</button>
+                </div>
+
+                <!-- MOTO -->
+                <div id="C_MOTO" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/cat-motos.png" alt="Categoria Motos">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-motorcycle"></i> MOTO</h3>
+                            <p>Trilhas abertas, single tracks desafiadores e saltos incríveis na areia. Preparado para voar sobre as dunas de Paracuru? A categoria mais radical do evento!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUADRICICLO -->
+                <div id="C_QUAD" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/cat-quadriciclos.png" alt="Categoria Quadriciclos">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-snowplow"></i> QUADRICICLO</h3>
+                            <p>Força bruta na areia fofa, trechos de lama densa e estabilidade em terrenos difíceis. Mostre que você domina as 4 rodas no guidão!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UTV -->
+                <div id="C_UTV" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/cat-utvs.png" alt="Categoria UTVs">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-car-side"></i> UTV</h3>
+                            <p>Ritmo alucinante, alta velocidade e muita poeira. Os side-by-sides vão dominar o circuito com toda a potência embarcada!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4X4 -->
+                <div id="C_4X4" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/hero-bg.png" alt="Categoria 4x4">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-truck-pickup"></i> 4X4</h3>
+                            <p>Para as gaiolas de aço e picapes gigantes. Trechos travados, pura tração e o verdadeiro espírito de expedição na lama de Paracuru.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIKE -->
+                <div id="C_BIKE" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/hero-bg.png" alt="Categoria Bike">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-bicycle"></i> BIKE</h3>
+                            <p>A força humana contra a natureza selvagem. Percurso especial com belíssimas paisagens para os ciclistas raiz que não temem a areia!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUGGY & CARROS -->
+                <div id="C_BUGGY" class="tabcontent">
+                    <div class="category-flex">
+                        <div class="cat-img-wrap">
+                            <img src="assets/img/hero-bg.png" alt="Categoria Buggy">
+                        </div>
+                        <div class="category-info">
+                            <h3><i class="fas fa-car"></i> BUGGY & CARROS</h3>
+                            <p>Os reis das dunas cearenses. Muita derrapagem controlada, clássicos do Ceará acelerando pra valer entre a areia e o mar!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div id="C_QUAD" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/cat-quadriciclos.png" alt="Quadriciclos">
-                    <div class="category-info">
-                        <h3><i class="fas fa-snowplow text-accent"></i> QUADRICICLO</h3>
-                        <p>Força bruta na areia fofa, trechos de lama densa e estabilidade em terrenos difíceis. Mostre que você domina as 4 rodas no guidão.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="C_UTV" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/cat-utvs.png" alt="UTVs">
-                    <div class="category-info">
-                        <h3><i class="fas fa-car-side text-accent"></i> UTV</h3>
-                        <p>Ritmo alucinante, alta velocidade e muita poeira. Os side-by-sides vão dominar o circuito com muita potência embarcada.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="C_4X4" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/poster-desktop.jpg" alt="4x4">
-                    <div class="category-info">
-                        <h3><i class="fas fa-truck-pickup text-accent"></i> 4x4</h3>
-                        <p>Para as gaiolas de aço e picapes gigantes. Trechos travados, pura tração e o verdadeiro espírito de expedição na lama.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="C_BIKE" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/poster-desktop.jpg" alt="Bike">
-                    <div class="category-info">
-                        <h3><i class="fas fa-bicycle text-accent"></i> BIKE</h3>
-                        <p>A força humana contra a natureza. Percurso especial com belíssimas paisagens para os ciclistas raiz.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="C_BUGGY" class="tabcontent">
-                <div class="category-flex">
-                    <img src="assets/img/poster-desktop.jpg" alt="Buggy">
-                    <div class="category-info">
-                        <h3><i class="fas fa-car text-accent"></i> BUGGY & CARROS</h3>
-                        <p>Os reis das dunas cearenses. Muita derrapagem contolada, clássicos do Ceará acelerando pra valer.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- PREMIAÇÃO EXCLUSIVA -->
-    <section class="section-wrapper" id="premiacao">
-        <div class="container reveal">
-            <h2>Premiação <span class="text-accent">Exclusiva</span></h2>
-            
-            <div class="prize-highlight">
-                <h3 class="prize-value">55 MIL REAIS EM PREMIAÇÕES TOTAIS!</h3>
-                <p style="font-size: 1.2rem; margin-top: 1rem;">Quem acelera com a gente não leva só poeira, leva prêmio pra casa! Não fique de fora.</p>
-                
-                <!-- PLACEHOLDER FOR THE KLX 300 IMAGE -->
-                <img src="assets/img/premio-moto.png" alt="Prêmio KLX 300 0KM">
-                
-                <h2 style="font-size: 3rem; margin: 0; color: #fff;">KLX 300 - 0KM</h2>
+    <!-- ═══ PREMIAÇÃO EXCLUSIVA ═══ -->
+    <section class="section-wrapper section-alt" id="premiacao">
+        <div class="container">
+            <h2 class="reveal">Premiação <span class="text-accent">Exclusiva</span></h2>
+            <p class="section-subtitle reveal">Quem acelera com a gente não leva só poeira, leva prêmio pra casa!</p>
+
+            <div class="prize-highlight reveal">
+                <h3 class="prize-value">🏆 55 MIL REAIS EM PREMIAÇÕES TOTAIS!</h3>
+                <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 1rem;">Não fique de fora do evento que vai parar o Vale do Curu.</p>
+
+                <img src="assets/img/premio-moto.png" alt="Prêmio KLX 300 0KM" class="prize-moto-img">
+
+                <h2 class="prize-model">KLX 300 — 0KM</h2>
+                <p style="color: var(--accent-yellow); font-weight: 700; font-size: 1.1rem; margin-top: 0.5rem;">O sonho de todo trilheiro!</p>
             </div>
-            
-            <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--text-muted); margin-bottom: 2rem;">
-                ALÉM DA ADRENALINA E DO MELHOR PERCURSO DO CEARÁ, VOCÊ CONCORRE A PRÊMIOS QUE VÃO FAZER O CHÃO TREMER:
+
+            <p class="reveal" style="text-align: center; font-size: 1.1rem; font-weight: 700; color: var(--text-muted); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px;">
+                Prêmios que vão fazer o chão tremer:
             </p>
 
-            <div class="prize-list">
+            <div class="prize-list reveal">
                 <div class="prize-item">
-                    <i class="fas fa-motorcycle"></i> UMA KLX 300cc - 0km (O sonho de todo trilheiro!)
+                    <i class="fas fa-motorcycle"></i> UMA KLX 300cc — 0km (O prêmio principal!)
                 </div>
                 <div class="prize-item">
-                    <i class="fas fa-mobile-alt"></i> SMARTPHONES de última geração.
+                    <i class="fas fa-mobile-alt"></i> SMARTPHONES de última geração
                 </div>
                 <div class="prize-item">
-                    <i class="fas fa-money-bill-wave"></i> MAIS DE 55 MIL REAIS em premiações totais!
+                    <i class="fas fa-money-bill-wave"></i> MAIS DE R$ 55 MIL em premiações totais
+                </div>
+                <div class="prize-item">
+                    <i class="fas fa-trophy"></i> Troféus exclusivos para todas as categorias
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PATROCÍNIO E CAMISAS -->
-    <section class="section-wrapper" id="patrocinio">
-        <div class="container reveal">
-            <div class="sponsorship-flex">
-                <div class="sponsorship-info">
-                    <span class="section-tag">CAMISA OFICIAL</span>
-                    <h3 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--text-light);">SUA MARCA NO CORPO DE QUEM FAZ <span class="text-accent">O EVENTO ACONTECER</span>!</h3>
-                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6;">Estamos preparando a maior edição de todos os tempos e a produção das camisas já começou: serão mais de <strong>1.500 unidades</strong> fabricadas em Tecido Dry-Fit de alta performance!</p>
-                    
-                    <p style="font-size: 1.1rem; margin-top: 1rem; color: var(--text-muted);">Imagine sua marca em destaque total, vestindo:</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Todos os participantes e competidores;</li>
-                        <li><i class="fas fa-check-circle"></i> Nossa equipe de apoio e resgate;</li>
-                        <li><i class="fas fa-check-circle"></i> Patrocinadores e grandes parceiros.</li>
-                    </ul>
-                    
-                    <p style="font-size: 1.1rem; margin-top: 2rem; font-style: italic; border-left: 4px solid var(--primary-orange); padding-left: 15px;">É mídia espontânea que não para! Cada trilheiro será um outdoor vivo da sua empresa durante todo o evento.</p>
+    <!-- ═══ KIT DE INSCRIÇÃO ═══ -->
+    <section class="section-wrapper" id="kit">
+        <div class="container">
+            <h2 class="reveal">Kit de <span class="text-accent">Inscrição</span></h2>
+            <p class="section-subtitle reveal">Ao se inscrever, você garante um kit exclusivo que é pura atitude!</p>
+
+            <div class="kit-section-inner reveal">
+                <div class="kit-image">
+                    <img src="assets/img/kit.png" alt="Kit de Inscrição Trilhão Paracuru">
                 </div>
-                <div class="shirt-images">
-                    <!-- PLACEHOLDER FOR SHIRT IMAGE -->
-                    <img src="assets/img/camisas.png" alt="Camisa Oficial Trilhão Paracuru">
+                <div class="kit-info">
+                    <span class="section-tag">EXCLUSIVO</span>
+                    <h3>TUDO QUE VOCÊ RECEBE AO <span class="text-accent">SE INSCREVER</span></h3>
+                    <p>O kit mais completo de qualquer trilhão do Ceará. Cada item foi pensado para que você viva essa experiência do início ao fim com estilo.</p>
+
+                    <div class="kit-items-grid">
+                        <div class="kit-item">
+                            <i class="fas fa-tshirt"></i> Camisa Manga Longa Dry-Fit
+                        </div>
+                        <div class="kit-item">
+                            <i class="fas fa-mask"></i> Balaclava Personalizada
+                        </div>
+                        <div class="kit-item">
+                            <i class="fas fa-trophy"></i> Troféu de Participação
+                        </div>
+                        <div class="kit-item">
+                            <i class="fas fa-shopping-bag"></i> Bolsa Saco Exclusiva
+                        </div>
+                    </div>
+
+                    <a href="#inscricao" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">
+                        QUERO MEU KIT <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- ═══ CTA FINAL ═══ -->
     <section class="cta-section" id="inscricao">
         <div class="container">
             <div class="cta-content reveal">
+                <img src="assets/img/logo.png" alt="Logo" style="height: 100px; margin-bottom: 2rem; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));">
                 <h2>As vagas são <span class="text-accent">limitadas</span>.</h2>
-                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem;">Garanta seu kit oficial e fature a chance de levar a KLX 300 novinha pra garagem!</p>
-                <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary" style="font-size: 1.4rem; padding: 1.5rem 4rem;">
-                    QUERO MINHA VAGA AGORA <i class="fab fa-whatsapp" style="margin-left: 10px;"></i>
+                <p>Garanta seu kit oficial e fature a chance de levar a KLX 300 novinha pra garagem!</p>
+                <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3.5rem;">
+                    QUERO MINHA VAGA AGORA <i class="fab fa-whatsapp"></i>
                 </a>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #64748b;">Fale com a equipe organizadora pelo WhatsApp e tire todas as suas dúvidas.</p>
             </div>
         </div>
     </section>
 
+    <!-- ═══ FOOTER ═══ -->
     <footer class="footer">
         <div class="container">
-            <div style="font-size: 2rem; font-weight: 900; margin-bottom: 1rem;">
-                <img src="assets/img/logo.jpg" alt="Logo" style="height: 60px;">
+            <div class="footer-logo">
+                <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road">
             </div>
             <div class="footer-social">
                 <a href="https://instagram.com/paracuru_off_road" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
             </div>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;">
+                <strong>@paracuru_off_road</strong>
+            </p>
             <p class="footer-copyright">
-                &copy; 2026 Trilhão de Paracuru. Todos os direitos reservados. Promovendo adrenalina com responsabilidade no Ceará - Brasil.
+                &copy; 2026 Equipe Paracuru Off Road. Todos os direitos reservados.<br>
+                Promovendo adrenalina com responsabilidade — Ceará, Brasil.
             </p>
         </div>
     </footer>
