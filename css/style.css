@@ -209,108 +209,39 @@ h2 {
 .desktop-header { display: flex; }
 .mobile-header { display: none; }
 
-/* ─── Hero Section ──────────────────────────── */
-.hero {
+/* ─── Hero Poster Section ──────────────────── */
+.hero-poster {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 2rem;
-  overflow: hidden;
+  width: 100%;
+  background: var(--bg-dark);
+  padding-top: 70px; /* compensar navbar fixa */
 }
 
-.hero-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -2;
+.poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.hero-logo {
-  height: clamp(100px, 20vw, 160px);
-  width: auto;
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
-  animation: float 3s ease-in-out infinite;
-}
+.poster-desktop { display: block; }
+.poster-mobile { display: none; }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(19, 25, 40, 0.3) 0%,
-    rgba(19, 25, 40, 0.6) 50%,
-    rgba(19, 25, 40, 0.97) 100%
-  );
-  z-index: -1;
-}
-
-.hero-content {
-  max-width: 900px;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-  margin-top: 60px;
-}
-
-.hero-content h1 {
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  text-shadow: 0 5px 20px rgba(0,0,0,0.6);
-  line-height: 1.1;
-}
-
-.hero-details {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 1rem 0;
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-family: var(--font-heading);
-  background: rgba(255,255,255,0.1);
-  padding: 0.8rem 1.8rem;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.detail-item.highlight {
-  background: var(--primary-orange);
-  color: white;
-  border-color: var(--primary-orange);
-}
-
-.hero .btn-primary {
-  font-size: 1.2rem;
-  padding: 1.2rem 3rem;
-  animation: pulse 2s infinite;
-}
-
-.hero-buttons {
+.hero-cta-bar {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background: linear-gradient(to bottom, var(--bg-dark), var(--bg-alt));
+}
+
+.hero-cta-bar .btn {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  padding: clamp(0.8rem, 2vw, 1.3rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.hero-cta-bar .btn-primary {
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
@@ -557,15 +488,24 @@ h2 {
   pointer-events: none;
 }
 
-.prize-moto-img {
-  max-width: 550px;
+.prize-moto-wrap {
+  max-width: 500px;
   margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background: radial-gradient(ellipse at center, rgba(59, 75, 114, 0.6) 0%, transparent 70%);
+}
+
+.prize-moto-img {
+  width: 100%;
   filter: drop-shadow(0 25px 40px rgba(0,0,0,0.7));
   transition: var(--transition-smooth);
+  mix-blend-mode: luminosity;
 }
 
 .prize-moto-img:hover {
   transform: scale(1.06) translateY(-5px);
+  mix-blend-mode: normal;
 }
 
 .prize-value {
@@ -868,37 +808,20 @@ h2 {
     display: flex;
   }
 
-  .hero { min-height: 100vh; }
+  .poster-desktop { display: none; }
+  .poster-mobile { display: block; }
 
-  .hero-content { margin-top: 80px; }
+  .hero-poster { padding-top: 60px; }
 
-  .hero-logo {
-    height: 90px;
-  }
-
-  .hero-details {
+  .hero-cta-bar {
     flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
-    width: 100%;
+    padding: 1.5rem;
   }
 
-  .detail-item {
+  .hero-cta-bar .btn {
     width: 100%;
-    justify-content: center;
-    font-size: 0.95rem;
-    padding: 0.7rem 1.2rem;
-  }
-
-  .hero-buttons {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .hero .btn-primary,
-  .hero .btn-outline {
-    width: 100%;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    padding: 1rem 2rem;
   }
 
   .tab-buttons {
