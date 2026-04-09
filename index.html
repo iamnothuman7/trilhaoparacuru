@@ -20,7 +20,7 @@
     <!-- ═══ DESKTOP HEADER ═══ -->
     <header class="navbar desktop-header" id="mainNav">
         <a href="#home" class="nav-brand">
-            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo">
+            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo" width="180" height="60">
         </a>
         <nav class="nav-links">
             <a href="#sobre">O Evento</a>
@@ -39,7 +39,7 @@
     <!-- ═══ MOBILE HEADER ═══ -->
     <header class="navbar mobile-header">
         <a href="#home" class="nav-brand">
-            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo">
+            <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" class="nav-logo" width="120" height="40">
         </a>
         <button class="mobile-menu-btn" aria-label="Abrir menu">
             <i class="fas fa-bars"></i>
@@ -60,8 +60,14 @@
 
     <!-- ═══ HERO (Poster é o próprio conteúdo) ═══ -->
     <section class="hero-poster" id="home">
-        <img src="assets/img/poster-desktop.png" alt="7ª Edição Trilhão Paracuru Off-Road" class="poster-img poster-desktop">
-        <img src="assets/img/poster-mobile.png" alt="7ª Edição Trilhão Paracuru Off-Road" class="poster-img poster-mobile">
+        <picture>
+            <source srcset="assets/img/poster-desktop.webp" type="image/webp">
+            <img src="assets/img/poster-desktop.png" alt="7ª Edição Trilhão Paracuru Off-Road" class="poster-img poster-desktop" fetchpriority="high" loading="eager" decoding="sync">
+        </picture>
+        <picture>
+            <source srcset="assets/img/poster-mobile.webp" type="image/webp">
+            <img src="assets/img/poster-mobile.png" alt="7ª Edição Trilhão Paracuru Off-Road" class="poster-img poster-mobile" fetchpriority="high" loading="eager" decoding="sync">
+        </picture>
 
         <!-- Botões flutuantes sobre o poster -->
         <div class="hero-cta-bar">
@@ -119,7 +125,7 @@
                     </div>
                 </div>
                 <div class="about-image reveal" style="transition-delay: 0.2s;">
-                    <img src="assets/img/hero-bg.jpg" alt="Ação no Trilhão Paracuru">
+                    <img src="assets/img/hero-bg.webp" alt="Ação no Trilhão Paracuru" loading="lazy" decoding="async" width="800" height="600">
                 </div>
             </div>
         </div>
@@ -161,18 +167,18 @@
             
             <div class="gallery-grid reveal">
                 <!-- 12 Placeholders para a galeria (3x4) -->
-                <div class="gallery-item"><img src="assets/img/gallery/g1.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g2.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g3.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g4.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g5.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g6.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g7.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g8.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g9.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g10.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g11.png" alt="Momento Trilhão"></div>
-                <div class="gallery-item"><img src="assets/img/gallery/g12.png" alt="Momento Trilhão"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g1.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g2.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g3.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g4.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g5.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g6.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g7.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g8.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g9.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g10.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g11.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
+                <div class="gallery-item"><img src="assets/img/gallery/g12.png" alt="Momento Trilhão" loading="lazy" decoding="async" width="400" height="400"></div>
             </div>
         </div>
     </section>
@@ -284,7 +290,7 @@
                 <div id="C_MOTO" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-motos.jpg" alt="Categoria Motos">
+                            <img src="assets/img/cat-motos.webp" alt="Categoria Motos" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-motorcycle"></i> MOTO</h3>
@@ -298,7 +304,7 @@
                 <div id="C_QUAD" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-quadriciclos.jpg" alt="Categoria Quadriciclos">
+                            <img src="assets/img/cat-quadriciclos.webp" alt="Categoria Quadriciclos" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-snowplow"></i> QUADRICICLO</h3>
@@ -312,7 +318,7 @@
                 <div id="C_UTV" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-utvs.jpg" alt="Categoria UTVs">
+                            <img src="assets/img/cat-utvs.webp" alt="Categoria UTVs" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-car-side"></i> UTV</h3>
@@ -326,7 +332,7 @@
                 <div id="C_4X4" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-4x4.jpg" alt="Categoria 4x4">
+                            <img src="assets/img/cat-4x4.webp" alt="Categoria 4x4" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-truck-pickup"></i> 4X4</h3>
@@ -340,7 +346,7 @@
                 <div id="C_BIKE" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-bike.jpg" alt="Categoria Bike">
+                            <img src="assets/img/cat-bike.webp" alt="Categoria Bike" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-bicycle"></i> BIKE</h3>
@@ -357,7 +363,7 @@
                 <div id="C_BUGGY" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-buggy.jpg" alt="Categoria Buggy">
+                            <img src="assets/img/cat-buggy.webp" alt="Categoria Buggy" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-car"></i> BUGGY & CARROS</h3>
@@ -371,7 +377,7 @@
                 <div id="C_TRAIL" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/cat-trail-run.jpg" alt="Categoria Trail Run">
+                            <img src="assets/img/cat-trail-run.webp" alt="Categoria Trail Run" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-running"></i> CORREDORES TRAIL</h3>
@@ -384,7 +390,7 @@
                 <div id="C_SORTEIOS" class="tabcontent">
                     <div class="category-flex">
                         <div class="cat-img-wrap">
-                            <img src="assets/img/prizes-gear.jpg" alt="Sorteios Especiais">
+                            <img src="assets/img/prizes-gear.webp" alt="Sorteios Especiais" loading="lazy" decoding="async" width="600" height="400">
                         </div>
                         <div class="category-info">
                             <h3><i class="fas fa-star"></i> SORTEIOS ESPECIAIS</h3>
@@ -421,7 +427,7 @@
                 <div class="prize-highlight">
                     <h3 class="prize-value">🏆 PRÊMIO PRINCIPAL</h3>
                     <div class="prize-moto-wrap">
-                        <img src="assets/img/premio-moto.png" alt="Prêmio KLX 300 2026" class="prize-moto-img">
+                        <img src="assets/img/premio-moto.webp" alt="Prêmio KLX 300 2026" class="prize-moto-img" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                     <h2 class="prize-model">KLX 300 — 2026</h2>
                     <p style="color: var(--accent-yellow); font-weight: 700; font-size: 1.1rem; margin-top: 0.5rem;">Sorteio entre todos os participantes!</p>
@@ -431,7 +437,7 @@
                 <div class="prize-highlight">
                     <h3 class="prize-value">🚲 SORTEIO DE 02 BIKES</h3>
                     <div class="prize-moto-wrap">
-                        <img src="assets/img/premio-bikes.png" alt="Sorteio de 2 Bikes" class="prize-moto-img">
+                        <img src="assets/img/premio-bikes.webp" alt="Sorteio de 2 Bikes" class="prize-moto-img" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                     <h2 class="prize-model">MTB PROFISSIONAIS</h2>
                     <p style="color: var(--accent-yellow); font-weight: 700; font-size: 1.1rem; margin-top: 0.5rem;">01 p/ Maior Equipe + 01 Sorteio Geral!</p>
@@ -451,7 +457,7 @@
                     </ul>
                 </div>
                 <div class="bundle-image">
-                    <img src="assets/img/prizes-gear.jpg" alt="Equipamentos de Trilhas">
+                    <img src="assets/img/prizes-gear.webp" alt="Equipamentos de Trilhas" loading="lazy" decoding="async" width="800" height="600">
                 </div>
             </div>
 
@@ -485,7 +491,7 @@
 
             <div class="kit-section-inner reveal">
                 <div class="kit-image">
-                    <img src="assets/img/kit.png" alt="Kit de Inscrição Trilhão Paracuru">
+                    <img src="assets/img/kit.webp" alt="Kit de Inscrição Trilhão Paracuru" loading="lazy" decoding="async" width="800" height="640">
                 </div>
                 <div class="kit-info">
                     <span class="section-tag">EXCLUSIVO</span>
@@ -589,7 +595,7 @@
     <section class="cta-section" id="inscricao">
         <div class="container">
             <div class="cta-content reveal">
-                <img src="assets/img/logo.png" alt="Logo" class="cta-logo">
+                <img src="assets/img/logo.png" alt="Logo" class="cta-logo" loading="lazy" width="150" height="50">
                 <h2>O Gigante te <span class="text-accent">espera</span>.</h2>
                 <p>Garanta seu kit oficial e fature a chance de levar a KLX 300 novinha pra garagem!</p>
                 <!-- LINK DE INSCRIÇÃO (SERÁ ATUALIZADO PELO USUÁRIO) -->
@@ -611,11 +617,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-logo">
-                <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road">
+                <img src="assets/img/logo.png" alt="Equipe Paracuru Off Road" loading="lazy" width="120" height="40">
             </div>
             <div class="footer-supporter" style="margin: 2rem 0; opacity: 0.8;">
                 <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Apoio:</p>
-                <img src="assets/img/logo-pref.png" alt="Prefeitura de Paracuru" style="height: 60px; width: auto; filter: brightness(0) invert(1);">
+                <img src="assets/img/logo-pref.png" alt="Prefeitura de Paracuru" style="height: 60px; width: auto; filter: brightness(0) invert(1);" loading="lazy" width="200" height="112">
             </div>
             <div class="footer-social">
                 <a href="https://instagram.com/paracuru_off_road" target="_blank" aria-label="Instagram"><i
