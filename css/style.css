@@ -884,14 +884,25 @@ h2 {
 
 /* ─── Premiação Section ─────────────────────── */
 .prize-highlight {
-  background: linear-gradient(135deg, var(--bg-surface), #3b4b72);
-  border-radius: var(--border-radius);
-  padding: 4rem 2rem;
+  background: linear-gradient(145deg, var(--bg-surface), var(--navy-dark));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 3rem 2rem;
   text-align: center;
-  border: 2px solid var(--primary-orange);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  height: 100%;
+}
+
+.prizes-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.prize-value { box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   margin-bottom: 3rem;
 }
 
@@ -1326,6 +1337,11 @@ h2 {
 
   .sponsors-grid.prata {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .prizes-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .whatsapp-float {
