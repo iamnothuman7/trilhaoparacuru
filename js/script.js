@@ -86,6 +86,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if(defaultTab) {
         defaultTab.click();
     }
+
+    // 6. Countdown Timer Logic
+    const eventDate = new Date("August 29, 2026 08:30:00").getTime();
+
+    const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+        if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+        if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+        if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            const timerEl = document.getElementById("timer");
+            if (timerEl) timerEl.innerHTML = "<h4>O GIGANTE ACORDOU!</h4>";
+        }
+    }, 1000);
 });
 
 // Category Tab Logic

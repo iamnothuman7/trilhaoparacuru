@@ -252,6 +252,100 @@ h2 {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
+/* ─── Countdown Section ────────────────────── */
+.countdown-section {
+  background: var(--navy-dark);
+  padding: 3rem 0;
+  border-bottom: 3px solid var(--primary-orange);
+}
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  background: rgba(255,255,255,0.03);
+  padding: 2rem 4rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.countdown-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.timer-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.time-block {
+  text-align: center;
+  min-width: 80px;
+}
+
+.time-block span {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--primary-orange);
+  line-height: 1;
+  font-family: var(--font-heading);
+}
+
+.time-block p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  letter-spacing: 1px;
+}
+
+/* ─── Raffle Cards (SORTEIOS) ─────────────── */
+.raffle-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.raffle-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.raffle-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-orange);
+}
+
+.raffle-card i {
+  font-size: 2.5rem;
+  color: var(--primary-orange);
+  margin-bottom: 1rem;
+}
+
+.raffle-card h4 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.raffle-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -454,6 +548,88 @@ h2 {
   width: 100%;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
   border-radius: var(--border-radius);
+}
+
+/* ─── Sponsors Section ──────────────────────── */
+.sponsors-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.sponsor-tier {
+  text-align: center;
+}
+
+.tier-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.sponsors-grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.sponsors-grid.diamante {
+  grid-template-columns: repeat(2, 300px);
+}
+
+.sponsors-grid.ouro {
+  grid-template-columns: repeat(2, 220px);
+}
+
+.sponsors-grid.prata {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sponsor-slot {
+  aspect-ratio: 16/9;
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s;
+  padding: 1rem;
+}
+
+.diamante .sponsor-slot { min-height: 160px; }
+.ouro .sponsor-slot { min-height: 120px; }
+.prata .sponsor-slot { min-height: 80px; }
+
+.sponsor-slot:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--primary-orange);
+  transform: scale(1.02);
+}
+
+.sponsor-slot img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.8);
+  transition: all 0.3s;
+}
+
+.sponsor-slot:hover img {
+  filter: none;
+}
+
+.sponsor-slot span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 /* ─── WhatsApp Float ───────────────────────── */
@@ -1113,6 +1289,43 @@ h2 {
 
   .bundle-list li {
     justify-content: center;
+  }
+
+  .countdown-wrapper {
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 20px;
+    gap: 1.5rem;
+  }
+
+  .countdown-title {
+    font-size: 1.1rem;
+  }
+
+  .timer-grid {
+    gap: 1rem;
+  }
+
+  .time-block {
+    min-width: 60px;
+  }
+
+  .time-block span {
+    font-size: 2rem;
+  }
+
+  .raffle-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsors-grid.diamante,
+  .sponsors-grid.ouro {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .sponsors-grid.prata {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .whatsapp-float {
