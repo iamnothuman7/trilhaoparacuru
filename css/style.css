@@ -88,10 +88,20 @@ h1, h2, h3, h4 {
 h2 {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: var(--text-light);
   letter-spacing: -2px;
   position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 20px;
+  margin: 0.5rem auto 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255, 77, 0, 0.2) 5px, rgba(255, 77, 0, 0.2) 10px);
+  mask-image: linear-gradient(to right, transparent, black, transparent);
 }
 
 h2 .text-accent {
@@ -161,8 +171,17 @@ h2 .text-accent {
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 0 35px rgba(245, 132, 0, 0.6);
+  box-shadow: 0 0 35px rgba(255, 77, 0, 0.6);
   background: var(--primary-hover);
+  animation: vibration 0.2s infinite ease-in-out;
+}
+
+@keyframes vibration {
+  0% { transform: translate(0, -3px) rotate(0deg); }
+  25% { transform: translate(1px, -2px) rotate(0.5deg); }
+  50% { transform: translate(0, -3px) rotate(0deg); }
+  75% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+  100% { transform: translate(0, -3px) rotate(0deg); }
 }
 
 .btn-outline {
@@ -218,18 +237,18 @@ h2 .text-accent {
 
 .nav-links {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.2rem;
   align-items: center;
 }
 
 .nav-links a {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
   transition: var(--transition-fast);
   position: relative;
-  padding: 0.3rem 0;
+  padding: 0.2rem 0;
 }
 
 .nav-links a:hover { color: var(--primary-orange); }
