@@ -467,9 +467,24 @@ h2 .text-accent {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   aspect-ratio: 1/1;
-  background: var(--bg-card);
+  background: #1a1a1a;
   border: 1px solid rgba(255,255,255,0.05);
   box-shadow: var(--shadow-premium);
+}
+
+/* Skeleton/Loading Effect */
+.gallery-item::before, .about-image::before, .cat-img-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  animation: shimmer 2s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  100% { left: 100%; }
 }
 
 .gallery-item img {
@@ -927,9 +942,11 @@ h2 .text-accent {
 
 .category-flex .cat-img-wrap {
   flex: 1;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  background: #1a1a1a;
+  position: relative;
 }
 
 .category-flex .cat-img-wrap img {
