@@ -4,70 +4,84 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Transparent to Solid Navbar on Scroll
     const navbar = document.querySelector('.navbar');
     
-    window.addEventListener('scroll', () => {
+    const handleNavbar = () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+    };
 
-    // 2. Mobile Menu Toggle
+    window.addEventListener('scroll', handleNavbar);
+    handleNavbar(); // Initial check
+
+    // 2. Mobile Menu Toggle - Enhanced for consistency
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelectorAll('.nav-links'); // Desktop and Mobile navs
+    const mobileNav = document.querySelector('.mobile-header .nav-links');
 
-    if (mobileBtn) {
+    if (mobileBtn && mobileNav) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.forEach(nav => {
-                if(nav.closest('.mobile-header')) {
-                    nav.classList.toggle('active');
-                }
+            mobileNav.classList.toggle('active');
+            mobileBtn.innerHTML = mobileNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
             });
-            mobileBtn.innerHTML = document.querySelector('.mobile-header .nav-links').classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.forEach(nav => {
-                if(nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    if(mobileBtn) mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-    });
-
-    // 3. Scroll Reveal Animations using Intersection Observer
+    // 3. Staggered Scroll Reveal Animations
     const revealElements = document.querySelectorAll('.reveal');
-
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // If it's a grid/container, stagger its children
+                if (entry.target.classList.contains('stagger-container')) {
+                    const children = entry.target.children;
+                    Array.from(children).forEach((child, index) => {
+                        setTimeout(() => {
+                            child.classList.add('active');
+                        }, index * 100);
+                    });
+                }
                 entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
             }
         });
-    }, revealOptions);
-
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
     });
+
+    revealElements.forEach(el => revealObserver.observe(el));
 
     // 4. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || targetId === '#inscricao') {
+                if (targetId === '#inscricao') {
+                    // Just scroll to section if it exists, button is disabled in UI but link works for the section scroll
+                    const target = document.querySelector('#inscricao');
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: target.offsetTop - navbar.offsetHeight,
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+                return;
+            }
             
+            e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const navHeight = navbar.offsetHeight;
@@ -81,65 +95,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Open Default Tab for Categories
+    // 5. Category Tabs Logic
+    window.openCategory = (evt, categoryName) => {
+        const tabcontent = document.getElementsByClassName("tabcontent");
+        for (let i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+        
+        const tablinks = document.getElementsByClassName("tablinks");
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        
+        const target = document.getElementById(categoryName);
+        if(target) {
+            target.style.display = "block";
+            setTimeout(() => target.classList.add("active"), 10);
+        }
+        evt.currentTarget.classList.add("active");
+    };
+
     const defaultTab = document.getElementById("defaultOpenTab");
-    if(defaultTab) {
-        defaultTab.click();
-    }
+    if(defaultTab) defaultTab.click();
 
     // 6. Countdown Timer Logic
     const eventDate = new Date("August 29, 2026 08:30:00").getTime();
 
-    const countdownInterval = setInterval(() => {
+    const updateTimer = () => {
         const now = new Date().getTime();
         const distance = eventDate - now;
+
+        if (distance < 0) {
+            const timerEl = document.getElementById("timer");
+            if (timerEl) timerEl.innerHTML = "<h4 style='font-size: 3rem; color: var(--primary-orange);'>O GIGANTE ACORDOU!</h4>";
+            return;
+        }
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const daysEl = document.getElementById("days");
-        const hoursEl = document.getElementById("hours");
-        const minutesEl = document.getElementById("minutes");
-        const secondsEl = document.getElementById("seconds");
+        const setTime = (id, val) => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = val.toString().padStart(2, '0');
+        };
 
-        if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
-        if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-        if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
-        if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+        setTime("days", days);
+        setTime("hours", hours);
+        setTime("minutes", minutes);
+        setTime("seconds", seconds);
+    };
 
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            const timerEl = document.getElementById("timer");
-            if (timerEl) timerEl.innerHTML = "<h4>O GIGANTE ACORDOU!</h4>";
-        }
-    }, 1000);
+    setInterval(updateTimer, 1000);
+    updateTimer();
 });
-
-// Category Tab Logic
-function openCategory(evt, categoryName) {
-    let i, tabcontent, tablinks;
-    
-    // Hide all tab content
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        tabcontent[i].classList.remove("active");
-    }
-    
-    // Remove "active" class from all buttons
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    const target = document.getElementById(categoryName);
-    if(target) {
-        target.style.display = "block";
-        // Small timeout to allow display:block to render before triggering opacity transition
-        setTimeout(() => target.classList.add("active"), 10);
-    }
-    evt.currentTarget.className += " active";
-}
