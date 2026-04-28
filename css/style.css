@@ -1494,7 +1494,7 @@ h2 .text-accent {
   }
 
   .sponsors-grid.prata {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .prizes-highlights {
