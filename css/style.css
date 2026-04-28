@@ -1353,6 +1353,7 @@ h2 .text-accent {
   }
 
   .mobile-header {
+    display: flex;
     top: 1rem;
     padding: 0.6rem 1.2rem;
     background: rgba(8, 8, 8, 0.9);
