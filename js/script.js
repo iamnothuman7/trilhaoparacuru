@@ -146,8 +146,100 @@ document.addEventListener('DOMContentLoaded', () => {
         setTime("hours", hours);
         setTime("minutes", minutes);
         setTime("seconds", seconds);
-    };
-
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    // 7. Cotas Extras Calculator and WhatsApp Generator
+    const COTA_PRICE = 2.00;
+    const MIN_COTAS = 10;
+
+    const quantityInput = document.getElementById("cotaQuantity");
+    const quantitySlider = document.getElementById("cotaSlider");
+    const btnMinus = document.getElementById("btnMinus");
+    const btnPlus = document.getElementById("btnPlus");
+    const totalSpan = document.getElementById("cotaTotal");
+    const cotaForm = document.getElementById("cotaForm");
+
+    if (quantityInput && totalSpan) {
+        const calculateTotal = (qty) => {
+            const val = parseInt(qty) || MIN_COTAS;
+            const total = val * COTA_PRICE;
+            totalSpan.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            // Micro-animation for price change
+            totalSpan.style.transform = "scale(1.1)";
+            totalSpan.style.color = "var(--primary-orange)";
+            setTimeout(() => {
+                totalSpan.style.transform = "scale(1)";
+                totalSpan.style.color = "var(--accent-yellow)";
+            }, 150);
+        };
+
+        const updateInputs = (val) => {
+            let cleanVal = parseInt(val) || MIN_COTAS;
+            if (cleanVal < MIN_COTAS) cleanVal = MIN_COTAS;
+            
+            quantityInput.value = cleanVal;
+            if (quantitySlider) quantitySlider.value = cleanVal;
+            calculateTotal(cleanVal);
+        };
+
+        // Slider Input Event
+        if (quantitySlider) {
+            quantitySlider.addEventListener("input", (e) => {
+                updateInputs(e.target.value);
+            });
+        }
+
+        // Input Number Change Event
+        quantityInput.addEventListener("change", (e) => {
+            updateInputs(e.target.value);
+        });
+
+        // Plus/Minus Buttons Events
+        if (btnMinus) {
+            btnMinus.addEventListener("click", () => {
+                const cur = parseInt(quantityInput.value) || MIN_COTAS;
+                if (cur > MIN_COTAS) {
+                    updateInputs(cur - 1);
+                } else {
+                    // Shake effect or feedback if already at minimum
+                    quantityInput.style.animation = "vibration 0.2s 2 ease-in-out";
+                    setTimeout(() => quantityInput.style.animation = "", 400);
+                }
+            });
+        }
+
+        if (btnPlus) {
+            btnPlus.addEventListener("click", () => {
+                const cur = parseInt(quantityInput.value) || MIN_COTAS;
+                updateInputs(cur + 1);
+            });
+        }
+
+        // Phone mask (basic Brazilian phone formatting e.g. (85) 99999-9999)
+        const phoneInput = document.getElementById("cotaPhone");
+        if (phoneInput) {
+            phoneInput.addEventListener("input", (e) => {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            });
+        }
+
+        // Form Submit to WhatsApp
+        if (cotaForm) {
+            cotaForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const name = document.getElementById("cotaName").value;
+                const phone = phoneInput ? phoneInput.value : "";
+                const qty = parseInt(quantityInput.value) || MIN_COTAS;
+                const totalText = totalSpan.innerText;
+
+                const message = `Olá, Equipe Paracuru Off Road! 🏍️💨\n\nQuero garantir minhas Cotas Extras para o sorteio da KLX 300cc!\n\n👤 *Nome:* ${name}\n📱 *WhatsApp:* ${phone}\n🎟️ *Quantidade:* ${qty} cotas\n💰 *Valor Total:* ${totalText}\n\nPor favor, me envie a chave PIX para confirmar a reserva! 🏁🔥`;
+                
+                const url = `https://wa.me/5585989357703?text=${encodeURIComponent(message)}`;
+                window.open(url, "_blank");
+            });
+        }
+    }
 });
