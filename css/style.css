@@ -33,7 +33,7 @@
 /* ─── Reset & Base ──────────────────────────── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -2042,7 +2042,7 @@ h2 .text-accent {
 }
 
 
-/* ─── RESPONSIVENESS ADAPTATIONS ─── */
+/* ─── RESPONSIVENESS: TABLET (1024px) ─── */
 @media (max-width: 1024px) {
   .kits-showcase-grid {
     grid-template-columns: 1fr;
@@ -2066,17 +2066,351 @@ h2 .text-accent {
   }
 }
 
-@media (max-width: 576px) {
+/* ─── RESPONSIVENESS: MOBILE (768px) ─── */
+@media (max-width: 768px) {
+  /* Instagram */
   .instagram-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
-  .cotas-info-card, .cotas-calc-card {
+  .insta-username { font-size: 0.75rem; }
+  .insta-location { font-size: 0.6rem; }
+  .insta-profile img { width: 26px; height: 26px; }
+  .insta-footer { padding: 0.6rem; }
+  .insta-likes { font-size: 0.7rem; }
+  .insta-caption { font-size: 0.65rem; -webkit-line-clamp: 1; }
+  .insta-actions { font-size: 0.9rem; }
+  .insta-header { padding: 0.5rem; }
+
+  /* Cotas */
+  .cotas-grid-calc {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .cotas-info-card {
     padding: 2rem 1.5rem;
   }
   .cotas-info-card h3 {
     font-size: 1.5rem;
   }
+  .cotas-calc-card {
+    padding: 2rem 1.5rem;
+  }
+  .calc-input {
+    font-size: 1.5rem;
+    width: 80px;
+  }
+  .price-value {
+    font-size: 1.4rem;
+  }
+  .calc-price-display {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* Kits */
+  .kits-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 100%;
+  }
   .kit-card-premium {
     padding: 2rem 1.5rem;
   }
+  .kit-card-premium.featured {
+    transform: none;
+  }
+  .kit-card-premium.featured:hover {
+    transform: translateY(-8px);
+  }
+  .kit-card-badge {
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.8rem;
+  }
+  .kit-card-icon {
+    font-size: 2.5rem;
+  }
+  .kit-card-header h3 {
+    font-size: 1.3rem;
+  }
+  .kit-features-list li {
+    font-size: 0.85rem;
+  }
+
+  /* Hero poster */
+  .hero-poster {
+    min-height: auto;
+  }
+
+  /* Category flex inside tabs */
+  .category-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .category-info h3 {
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+  .category-info p {
+    font-size: 0.95rem;
+  }
+
+  /* Schedule */
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Prizes bundle */
+  .prizes-bundle {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    text-align: center;
+  }
+  .bundle-list li {
+    justify-content: center;
+  }
+
+  /* Section padding override */
+  .section-wrapper {
+    padding: 4rem 1.2rem;
+  }
+
+  /* CTA section */
+  .cta-section {
+    padding: 5rem 1.5rem;
+  }
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  .registration-placeholder .btn {
+    font-size: 1rem !important;
+    padding: 1.2rem 1.8rem !important;
+  }
 }
+
+/* ─── RESPONSIVENESS: SMALL MOBILE (576px) ─── */
+@media (max-width: 576px) {
+  .instagram-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .insta-username { font-size: 0.8rem; }
+  .insta-location { font-size: 0.65rem; }
+  .insta-profile img { width: 30px; height: 30px; }
+  .insta-footer { padding: 0.7rem; }
+  .insta-likes { font-size: 0.75rem; }
+  .insta-caption { font-size: 0.7rem; -webkit-line-clamp: 2; }
+  .insta-actions { font-size: 1rem; }
+
+  .cotas-info-card, .cotas-calc-card {
+    padding: 1.5rem 1rem;
+  }
+  .cotas-info-card h3 {
+    font-size: 1.3rem;
+  }
+  .cota-rule-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .kit-card-premium {
+    padding: 1.5rem 1rem;
+  }
+  .kit-card-header h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Timer */
+  .timer-grid {
+    gap: 0.6rem;
+  }
+  .time-block {
+    min-width: 50px;
+  }
+  .time-block span {
+    font-size: 1.8rem;
+  }
+  .countdown-title {
+    font-size: 1rem;
+  }
+
+  /* Tabs */
+  .tablinks {
+    flex: 1 1 calc(50% - 0.5rem);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.6rem;
+  }
+  .tabcontent {
+    padding: 1.2rem;
+  }
+
+  /* Gallery mobile 2 cols */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  /* About section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .about-content .stat-highlight {
+    text-align: left;
+    font-size: 1.1rem;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .stat-value {
+    font-size: 2.2rem;
+  }
+  .stat-card {
+    padding: 2rem 1rem;
+  }
+
+  /* Sponsors */
+  .sponsors-grid.diamante,
+  .sponsors-grid.ouro {
+    grid-template-columns: 1fr;
+  }
+  .sponsors-grid.prata {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sponsor-slot {
+    padding: 1rem 0.5rem;
+    min-height: 70px;
+  }
+
+  /* Prize list */
+  .prize-list {
+    grid-template-columns: 1fr;
+  }
+  .prize-item {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  /* Prizes highlights */
+  .prizes-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .prize-highlight {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Raffle cards */
+  .raffle-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero CTA */
+  .hero-cta-bar {
+    bottom: 5%;
+    padding: 1rem;
+  }
+  .hero-cta-bar .btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.9rem 1.5rem;
+  }
+
+  /* Schedule */
+  .schedule-day {
+    padding: 1.2rem;
+  }
+  .event {
+    gap: 1rem;
+  }
+  .time {
+    min-width: 50px;
+    height: 50px;
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 1rem 1.5rem;
+  }
+  .footer-logo img {
+    height: 50px;
+  }
+  .cta-logo {
+    height: 60px;
+  }
+
+  /* WhatsApp float */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  /* Section subtitle */
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ─── RESPONSIVENESS: EXTRA SMALL (400px) ─── */
+@media (max-width: 400px) {
+  .timer-grid {
+    gap: 0.4rem;
+  }
+  .time-block {
+    min-width: 42px;
+  }
+  .time-block span {
+    font-size: 1.5rem;
+  }
+  .time-block p {
+    font-size: 0.6rem;
+  }
+
+  .hero-cta-bar .btn {
+    font-size: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-selector {
+    gap: 0.5rem;
+  }
+  .calc-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+  .calc-input {
+    font-size: 1.3rem;
+    width: 65px;
+  }
+}
+
