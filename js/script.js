@@ -1,7 +1,7 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Transparent to Solid Navbar on Scroll
+    // 1. Menu transparente para sólido ao rolar a página
     const navbar = document.querySelector('.navbar');
     
     const handleNavbar = () => {
@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', handleNavbar);
-    handleNavbar(); // Initial check
+    handleNavbar(); // Verificação inicial
 
-    // 2. Mobile Menu Toggle - Enhanced for consistency
+    // 2. Alternar Menu Mobile - Aprimorado para consistência
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const mobileNav = document.querySelector('.mobile-header .nav-links');
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close mobile menu when clicking a link
+        // Fechar menu mobile ao clicar em um link
         mobileNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Staggered Scroll Reveal Animations
+    // 3. Animações em cascata ao rolar a página (Scroll Reveal)
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // If it's a grid/container, stagger its children
+                // Se for um container ou grid, animar os filhos em cascata
                 if (entry.target.classList.contains('stagger-container')) {
                     const children = entry.target.children;
                     Array.from(children).forEach((child, index) => {
@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Smooth scrolling for anchor links (skip external links and links with target=_blank)
+    // 4. Rolagem suave para links internos (ignora links externos)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            // Skip if this link also has a target="_blank" or is an external link
+            // Ignorar se o link tiver target="_blank" ou for externo
             if (this.getAttribute('target') === '_blank') return;
 
             const targetId = this.getAttribute('href');
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Category Tabs Logic
+    // 5. Lógica das Abas de Categoria
     window.openCategory = (evt, categoryName) => {
         const tabcontent = document.getElementsByClassName("tabcontent");
         for (let i = 0; i < tabcontent.length; i++) {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultTab = document.getElementById("defaultOpenTab");
     if(defaultTab) defaultTab.click();
 
-    // 6. Countdown Timer Logic
+    // 6. Lógica do Cronômetro de Contagem Regressiva
     const eventDate = new Date("August 29, 2026 08:30:00").getTime();
 
     const updateTimer = () => {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // 7. Cotas Extras Calculator and WhatsApp Generator
+    // 7. Calculadora de Cotas Extras e Gerador de Link do WhatsApp
     const COTA_PRICE = 2.00;
     const MIN_COTAS = 10;
 
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const total = val * COTA_PRICE;
             totalSpan.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
             
-            // Micro-animation for price change
+            // Micro-animação para mudança de preço
             totalSpan.style.transform = "scale(1.1)";
             totalSpan.style.color = "var(--primary-orange)";
             setTimeout(() => {
@@ -175,26 +175,26 @@ document.addEventListener('DOMContentLoaded', () => {
             calculateTotal(cleanVal);
         };
 
-        // Slider Input Event
+        // Evento de input do controle deslizante (slider)
         if (quantitySlider) {
             quantitySlider.addEventListener("input", (e) => {
                 updateInputs(e.target.value);
             });
         }
 
-        // Input Number Change Event
+        // Evento de mudança do campo numérico
         quantityInput.addEventListener("change", (e) => {
             updateInputs(e.target.value);
         });
 
-        // Plus/Minus Buttons Events
+        // Eventos dos botões de Mais e Menos
         if (btnMinus) {
             btnMinus.addEventListener("click", () => {
                 const cur = parseInt(quantityInput.value) || MIN_COTAS;
                 if (cur > MIN_COTAS) {
                     updateInputs(cur - 1);
                 } else {
-                    // Shake effect or feedback if already at minimum
+                    // Efeito de tremer caso o usuário tente baixar do mínimo permitido
                     quantityInput.style.animation = "vibration 0.2s 2 ease-in-out";
                     setTimeout(() => quantityInput.style.animation = "", 400);
                 }
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Phone mask (basic Brazilian phone formatting e.g. (85) 99999-9999)
+        // Máscara de telefone (formatação básica brasileira)
         const phoneInput = document.getElementById("cotaPhone");
         if (phoneInput) {
             phoneInput.addEventListener("input", (e) => {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Form Submit to WhatsApp
+        // Envio do formulário para o WhatsApp
         if (cotaForm) {
             cotaForm.addEventListener("submit", (e) => {
                 e.preventDefault();
