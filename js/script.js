@@ -61,25 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Smooth scrolling for anchor links
+    // 4. Smooth scrolling for anchor links (skip external links and links with target=_blank)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            // Skip if this link also has a target="_blank" or is an external link
+            if (this.getAttribute('target') === '_blank') return;
+
             const targetId = this.getAttribute('href');
-            if (targetId === '#' || targetId === '#inscricao') {
-                if (targetId === '#inscricao') {
-                    // Just scroll to section if it exists, button is disabled in UI but link works for the section scroll
-                    const target = document.querySelector('#inscricao');
-                    if (target) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: target.offsetTop - navbar.offsetHeight,
-                            behavior: 'smooth'
-                        });
-                    }
-                    return;
-                }
-                return;
-            }
+            if (targetId === '#') return;
             
             e.preventDefault();
             const targetElement = document.querySelector(targetId);
@@ -146,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTime("hours", hours);
         setTime("minutes", minutes);
         setTime("seconds", seconds);
+    };
+
     setInterval(updateTimer, 1000);
     updateTimer();
 

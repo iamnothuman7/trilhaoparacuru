@@ -366,13 +366,7 @@ h2 .text-accent {
 }
 
 .countdown-wrapper::before {
-  content: 'COUNTDOWN';
-  position: absolute;
-  top: 1rem; right: 2rem;
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  color: rgba(255,255,255,0.02);
-  pointer-events: none;
+  display: none;
 }
 
 .countdown-title {
