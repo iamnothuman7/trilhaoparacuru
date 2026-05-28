@@ -18,7 +18,7 @@
   --font-body: 'Inter', sans-serif;
 
   /* Spacing & Layout */
-  --Container (Recipiente)-max: 1280px;
+  --container-max: 1280px;
   --section-padding: 8rem 2rem;
 
   /* Effects */
@@ -30,7 +30,7 @@
   --trail-texture: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.02) 75%, transparent 75%, transparent);
 }
 
-/* ─── Reset e Base ──────────────────────────── */
+/* ─── Reset & Base ──────────────────────────── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
@@ -44,7 +44,7 @@ body {
   position: relative;
 }
 
-/* ─── Barra de Rolagem Customizada ──────────────────────── */
+/* ─── Custom Scrollbar ──────────────────────── */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -138,14 +138,14 @@ h2 .text-accent {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ─── Container (Recipiente) ─────────────────────────────── */
-.Container (Recipiente) {
-  max-width: var(--Container (Recipiente)-max);
+/* ─── Container ─────────────────────────────── */
+.container {
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* ─── Bot�es ───────────────────────────────── */
+/* ─── Buttons ───────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -196,8 +196,8 @@ h2 .text-accent {
   transform: translateY(-2px);
 }
 
-/* ─── Barra de Navega��o ────────────────────────────────── */
-.Barra de Navega��o {
+/* ─── Navbar ────────────────────────────────── */
+.navbar {
   position: fixed;
   top: 1rem;
   left: 50%;
@@ -216,7 +216,7 @@ h2 .text-accent {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.Barra de Navega��o.scrolled {
+.navbar.scrolled {
   top: 0.8rem;
   background: rgba(8, 8, 8, 0.9);
   padding: 0.6rem 2rem;
@@ -233,7 +233,7 @@ h2 .text-accent {
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 
-.Barra de Navega��o.scrolled .nav-logo { height: 42px; }
+.navbar.scrolled .nav-logo { height: 42px; }
 
 .nav-links {
   display: flex;
@@ -278,7 +278,7 @@ h2 .text-accent {
 .desktop-header { display: flex; }
 .mobile-header { display: none; }
 
-/* ─── Se��o Principal (Poster) ──────────────────── */
+/* ─── Hero Poster Section ──────────────────── */
 .hero-poster {
   position: relative;
   width: 100%;
@@ -326,14 +326,14 @@ h2 .text-accent {
 }
 
 /* ─── Stats Section ────────────────────────── */
-.stats-Container (Recipiente) {
+.stats-container {
   padding: 8rem 0;
   background: var(--bg-surface);
   position: relative;
   overflow: hidden;
 }
 
-.stats-Container (Recipiente)::before {
+.stats-container::before {
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -695,7 +695,7 @@ h2 .text-accent {
 }
 
 /* ─── Sponsors Section ──────────────────────── */
-.sponsors-Container (Recipiente) {
+.sponsors-container {
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
@@ -862,7 +862,7 @@ h2 .text-accent {
   filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-/* ─── Inv�lucro de Se��o ───────────────────────── */
+/* ─── Section Wrapper ───────────────────────── */
 .section-wrapper {
   padding: var(--section-padding);
 }
@@ -875,7 +875,7 @@ h2 .text-accent {
   background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-alt) 100%);
 }
 
-/* ─── Sobre o Evento ────────────────── */
+/* ─── Sobre o Evento (About) ────────────────── */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -926,13 +926,13 @@ h2 .text-accent {
   transform: scale(1.05);
 }
 
-/* ─── Abas Interativas (Categorias) ─────────── */
-.tabs-Container (Recipiente) {
+/* ─── Interactive Tabs (Categories) ─────────── */
+.tabs-container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.tab-Bot�es {
+.tab-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1204,7 +1204,7 @@ h2 .text-accent {
   font-size: 1.3rem;
 }
 
-/* ─── Se��o de Chamada Final ─────────────────────── */
+/* ─── Final CTA Section ─────────────────────── */
 .cta-section {
   padding: 8rem 2rem;
   background: linear-gradient(to bottom, var(--bg-alt), #08090e);
@@ -1241,31 +1241,31 @@ h2 .text-accent {
   margin-right: auto;
 }
 
-/* ─── Rodap� ────────────────────────────────── */
-.Rodap� {
+/* ─── Footer ────────────────────────────────── */
+.footer {
   background: #06080c;
   padding: 4rem 2rem 2rem;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
-.Rodap�-logo {
+.footer-logo {
   margin-bottom: 1.5rem;
 }
 
-.Rodap�-logo img {
+.footer-logo img {
   height: 70px;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 
-.Rodap�-social {
+.footer-social {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.Rodap�-social a {
+.footer-social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1279,13 +1279,13 @@ h2 .text-accent {
   border: 1px solid rgba(255,255,255,0.05);
 }
 
-.Rodap�-social a:hover {
+.footer-social a:hover {
   background: var(--primary-orange);
   transform: translateY(-4px);
   border-color: var(--primary-orange);
 }
 
-.Rodap�-copyright {
+.footer-copyright {
   color: #475569;
   font-size: 0.85rem;
   margin-top: 2rem;
@@ -1293,7 +1293,7 @@ h2 .text-accent {
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
-/* ─── Efeito de Revela��o na Rolagem ─────────────────────────── */
+/* ─── Scroll Reveal ─────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1305,7 +1305,7 @@ h2 .text-accent {
   transform: translateY(0);
 }
 
-/* ─── Responsividade: Tablet ────────────────────── */
+/* ─── Responsive: Tablet ────────────────────── */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -1336,7 +1336,7 @@ h2 .text-accent {
   }
 }
 
-/* ─── Responsividade: Mobile ────────────────────── */
+/* ─── Responsive: Mobile ────────────────────── */
 @media (max-width: 768px) {
   :root {
     --section-padding: 4rem 1.5rem;
@@ -1403,7 +1403,7 @@ h2 .text-accent {
     padding: 1rem 2rem;
   }
 
-  .tab-Bot�es {
+  .tab-buttons {
     gap: 0.5rem;
   }
 
@@ -1628,7 +1628,7 @@ h2 .text-accent {
   transform: translateY(0);
 }
 
-.insta-Rodap� {
+.insta-footer {
   padding: 0.8rem;
 }
 
@@ -1676,7 +1676,7 @@ h2 .text-accent {
 
 
 /* ─── COTAS EXTRAS SECTION STYLE ─── */
-.cotas-Container (Recipiente) {
+.cotas-container {
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -1813,7 +1813,7 @@ h2 .text-accent {
   margin: 0;
 }
 
-.cota-slider-Container (Recipiente) {
+.cota-slider-container {
   margin-bottom: 2rem;
   padding: 0 0.5rem;
 }
@@ -2037,12 +2037,12 @@ h2 .text-accent {
   color: var(--text-light);
 }
 
-.kit-card-Rodap� {
+.kit-card-footer {
   margin-top: auto;
 }
 
 
-/* ─── RESPONSIVIDADE: TABLET (1024px) ─── */
+/* ─── RESPONSIVENESS: TABLET (1024px) ─── */
 @media (max-width: 1024px) {
   .kits-showcase-grid {
     grid-template-columns: 1fr;
@@ -2066,7 +2066,7 @@ h2 .text-accent {
   }
 }
 
-/* ─── RESPONSIVIDADE: MOBILE (768px) ─── */
+/* ─── RESPONSIVENESS: MOBILE (768px) ─── */
 @media (max-width: 768px) {
   /* Instagram */
   .instagram-grid {
@@ -2076,7 +2076,7 @@ h2 .text-accent {
   .insta-username { font-size: 0.75rem; }
   .insta-location { font-size: 0.6rem; }
   .insta-profile img { width: 26px; height: 26px; }
-  .insta-Rodap� { padding: 0.6rem; }
+  .insta-footer { padding: 0.6rem; }
   .insta-likes { font-size: 0.7rem; }
   .insta-caption { font-size: 0.65rem; -webkit-line-clamp: 1; }
   .insta-actions { font-size: 0.9rem; }
@@ -2194,7 +2194,7 @@ h2 .text-accent {
   }
 }
 
-/* ─── RESPONSIVIDADE: CELULAR PEQUENO (576px) ─── */
+/* ─── RESPONSIVENESS: SMALL MOBILE (576px) ─── */
 @media (max-width: 576px) {
   .instagram-grid {
     grid-template-columns: 1fr;
@@ -2203,7 +2203,7 @@ h2 .text-accent {
   .insta-username { font-size: 0.8rem; }
   .insta-location { font-size: 0.65rem; }
   .insta-profile img { width: 30px; height: 30px; }
-  .insta-Rodap� { padding: 0.7rem; }
+  .insta-footer { padding: 0.7rem; }
   .insta-likes { font-size: 0.75rem; }
   .insta-caption { font-size: 0.7rem; -webkit-line-clamp: 2; }
   .insta-actions { font-size: 1rem; }
@@ -2340,11 +2340,11 @@ h2 .text-accent {
     font-size: 0.8rem;
   }
 
-  /* Rodap� */
-  .Rodap� {
+  /* Footer */
+  .footer {
     padding: 3rem 1rem 1.5rem;
   }
-  .Rodap�-logo img {
+  .footer-logo img {
     height: 50px;
   }
   .cta-logo {
@@ -2373,7 +2373,7 @@ h2 .text-accent {
   }
 }
 
-/* ─── RESPONSIVIDADE: CELULAR MUITO PEQUENO (400px) ─── */
+/* ─── RESPONSIVENESS: EXTRA SMALL (400px) ─── */
 @media (max-width: 400px) {
   .timer-grid {
     gap: 0.4rem;
