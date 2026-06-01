@@ -772,19 +772,16 @@ h2 .text-accent {
 
 .sponsors-category.diamante .sponsor-card {
   border-color: rgba(0, 229, 255, 0.3);
-  min-height: 280px;
   padding: 40px 30px;
 }
 
 .sponsors-category.ouro .sponsor-card {
   border-color: rgba(255, 215, 0, 0.3);
-  min-height: 210px;
   padding: 30px 22px;
 }
 
 .sponsors-category.bronze .sponsor-card {
   border-color: rgba(205, 127, 50, 0.3);
-  min-height: 140px;
   padding: 20px 15px;
 }
 
@@ -816,17 +813,14 @@ h2 .text-accent {
 
 .sponsors-category.diamante .sponsor-logo {
   max-height: 140px;
-  margin-bottom: 25px;
 }
 
 .sponsors-category.ouro .sponsor-logo {
   max-height: 105px;
-  margin-bottom: 18px;
 }
 
 .sponsors-category.bronze .sponsor-logo {
   max-height: 70px;
-  margin-bottom: 12px;
 }
 
 .sponsor-card:hover .sponsor-logo {
@@ -876,13 +870,10 @@ h2 .text-accent {
 }
 
 @media (max-width: 768px) {
-  .sponsors-category.diamante .sponsor-card { min-height: 220px; }
   .sponsors-category.diamante .sponsor-logo { max-height: 120px; }
   
-  .sponsors-category.ouro .sponsor-card { min-height: 180px; }
   .sponsors-category.ouro .sponsor-logo { max-height: 90px; }
   
-  .sponsors-category.bronze .sponsor-card { min-height: 120px; }
   .sponsors-category.bronze .sponsor-logo { max-height: 60px; }
 }
 
