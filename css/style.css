@@ -723,29 +723,50 @@ h2 .text-accent {
 }
 
 .sponsors-grid.diamante {
-  grid-template-columns: repeat(2, 300px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .sponsors-grid.ouro {
-  grid-template-columns: repeat(2, 220px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .sponsors-grid.prata {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .sponsor-slot {
   aspect-ratio: 16/9;
-  background: rgba(255,255,255,0.02);
-  border: 1px dashed rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  transition: all 0.3s;
-  padding: 1rem;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-slot::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.sponsor-slot:hover::before {
+  left: 150%;
 }
 
 .diamante .sponsor-slot { min-height: 160px; }
@@ -753,9 +774,10 @@ h2 .text-accent {
 .prata .sponsor-slot { min-height: 80px; }
 
 .sponsor-slot:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.08);
   border-color: var(--primary-orange);
-  transform: scale(1.02);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255, 77, 0, 0.2);
 }
 
 .sponsor-slot img {
