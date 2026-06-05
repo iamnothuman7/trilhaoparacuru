@@ -732,7 +732,7 @@ h2 .text-accent {
 .sponsor-category-title {
   text-align: center;
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
   margin-bottom: 2.5rem;
   position: relative;
   text-transform: uppercase;
@@ -870,6 +870,9 @@ h2 .text-accent {
 }
 
 @media (max-width: 768px) {
+  .sponsors-category {
+    padding: 30px 15px;
+  }
   .sponsors-category.diamante .sponsor-logo { max-height: 120px; }
   
   .sponsors-category.ouro .sponsor-logo { max-height: 90px; }
@@ -1158,7 +1161,7 @@ h2 .text-accent {
 
 .prizes-highlights {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
 }
