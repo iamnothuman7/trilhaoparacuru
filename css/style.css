@@ -1508,11 +1508,64 @@ h2 .text-accent {
   .poster-desktop { display: none; }
   .poster-mobile { display: block; }
 
-  .hero-poster { padding-top: 0; }
+  .hero-poster {
+    padding-top: 110px; /* Espaço para o Nav flutuante no mobile */
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--bg-dark);
+  }
+
+  .poster-mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Gradiente no topo do banner mobile */
+  .hero-poster::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 110px; /* Inicia onde a imagem começa */
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--bg-dark) 0%, rgba(8, 8, 8, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Gradiente na base do banner mobile */
+  .hero-poster::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    background: linear-gradient(to top, var(--bg-dark) 30%, rgba(8, 8, 8, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
 
   .hero-cta-bar {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: -100px; /* Puxa os botões para cima, sobrepondo o fade da imagem */
+    padding: 2rem 1.5rem 3rem;
+    z-index: 5; /* Garante que os botões fiquem clicáveis acima do gradiente */
+    background: transparent;
+    display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    gap: 1rem;
   }
 
   .hero-cta-bar .btn {
@@ -2436,7 +2489,6 @@ h2 .text-accent {
 
   /* Hero CTA */
   .hero-cta-bar {
-    bottom: 5%;
     padding: 1rem;
   }
   .hero-cta-bar .btn {
